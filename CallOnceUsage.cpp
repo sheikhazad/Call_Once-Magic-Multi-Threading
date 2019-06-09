@@ -33,7 +33,7 @@ void CallOnceUsage::writeToFile(const string& sThreadName, const int& iCounter)
 	//2. Call_once will be called by ONLY one thread and so file will be opened by ONLY one thread.
 	//3. It will avoid multiple threads waiting on mutex, lock and unlock unnecessarily,
 	//   thus avoid waste of CPU cycles and avoid hindering the program from being run concurrently.
-	//5. Compare it with use of mutex in in MutexWrongUsage.cpp
+	//4. Compare it with use of mutex in in MutexWrongUsage.cpp
     std::call_once(_oflag, [&](){
                                   cout<< "Opening file - CallOnceUsage.txt only ONCE by only ONE thread by using call_once." << endl;
                                   _ofile.open(_sFileName.c_str());
